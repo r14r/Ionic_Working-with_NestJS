@@ -1,0 +1,117 @@
+<ion-header>
+	<ion-toolbar>
+		<ion-buttons slot="start">
+			<ion-back-button></ion-back-button>
+		</ion-buttons>
+
+		<ion-title>Edit Contacts</ion-title>
+	</ion-toolbar>
+</ion-header>
+<ion-content>
+
+		<ion-item>
+			<ion-label position="floating">Classroom Name</ion-label>
+			<ion-input type="text" formControlName="class_name"></ion-input>
+		</ion-item>
+
+		<ion-item-divider>
+			<ion-label>
+				Students
+				<ion-button shape="round" (click)="addBlankStudent()">
+					<ion-icon name="add-circle"></ion-icon>
+				</ion-button>
+			</ion-label>
+		</ion-item-divider>
+
+		<div formArrayName="students">
+			<ion-item *ngFor="let student of contactForm.get('students').controls; let i=index" [formGroupName]="i">
+				<ion-label position="floating">Student Name</ion-label>
+				<ion-row>
+					<ion-col size="10">
+						<ion-input type="text" formControlName="student_name" item-start></ion-input>
+					</ion-col>
+					<ion-col size="2">
+						<ion-button shape="round" color="dark"
+							(click)="deleteStudent(contactForm.get('students').controls,i)">
+							<ion-icon name="trash"></ion-icon>
+						</ion-button>
+					</ion-col>
+				</ion-row>
+			</ion-item>
+		</div>
+		<ion-button shape="round" color="primary" expand="block" [disabled]="!contactForm.valid"
+			(click)="updateClassroom()">Submit</ion-button>
+
+	<ion-card *ngFor="let contact of (contacts | async)">
+		<ion-card-header>
+			<ion-card-title>{{ contact.lastName }}, {{ contact.firstName }}</ion-card-title>
+			<ion-card-subtitle>-</ion-card-subtitle>
+		</ion-card-header>
+
+		<ion-card-content>
+		</ion-card-content>
+
+		<ion-item class="ion-activated">
+			<ion-icon name="mail" slot="start"></ion-icon>
+			<ion-input>{{ contact.email }}</ion-input>
+		</ion-item>
+
+		<ion-item>
+			<ion-icon name="call-outline" slot="start"></ion-icon>
+			<ion-label>{{ contact.phone }}</ion-label>
+		</ion-item>
+
+		<ion-item class="ion-activated">
+			<ion-icon name="home-outline" slot="start"></ion-icon>
+			<ion-label>{{ contact.city }}</ion-label>
+		</ion-item>
+
+		<ion-item>
+			<ion-icon name="earth-outline" slot="start"></ion-icon>
+			<ion-label>{{ contact.country }}</ion-label>
+
+		</ion-item>
+	</ion-card>
+
+	<!-- Default Input -->
+	<ion-input></ion-input>
+
+	<!-- Input with value -->
+	<ion-input value="custom"></ion-input>
+
+	<!-- Input with placeholder -->
+	<ion-input placeholder="Enter Input"></ion-input>
+
+	<!-- Input with clear button when there is a value -->
+	<ion-input clearInput value="clear me"></ion-input>
+
+	<!-- Number type input -->
+	<ion-input type="number" value="333"></ion-input>
+
+	<!-- Disabled input -->
+	<ion-input value="Disabled" disabled></ion-input>
+
+	<!-- Readonly input -->
+	<ion-input value="Readonly" readonly></ion-input>
+
+	<!-- Inputs with labels -->
+	<ion-item>
+		<ion-label>Default Label</ion-label>
+		<ion-input></ion-input>
+	</ion-item>
+
+	<ion-item>
+		<ion-label position="floating">Floating Label</ion-label>
+		<ion-input></ion-input>
+	</ion-item>
+
+	<ion-item>
+		<ion-label position="fixed">Fixed Label</ion-label>
+		<ion-input></ion-input>
+	</ion-item>
+
+	<ion-item>
+		<ion-label position="stacked">Stacked Label</ion-label>
+		<ion-input></ion-input>
+	</ion-item>
+</ion-content>

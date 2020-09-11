@@ -1,4 +1,4 @@
-**/.env
+**/.env.d
 **/node_modules
 
-demo.server/node_modules
+**/.DS_Store

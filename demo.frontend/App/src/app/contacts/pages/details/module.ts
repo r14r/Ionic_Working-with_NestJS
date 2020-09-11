@@ -4,27 +4,25 @@ import { FormsModule } from '@angular/forms';
 
 import { IonicModule } from '@ionic/angular';
 
-import { FolderPageRoutingModule } from './folder-routing.module';
-
-import { FolderPage } from './folder.page';
+import { ContactDetailsPage } from './page';
+import { ContactDetailsPageRoutingModule } from './routing.module';
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
-    FolderPageRoutingModule
+    ContactDetailsPageRoutingModule
   ],
-  declarations: [FolderPage]
+  declarations: [ContactDetailsPage]
 })
-export class FolderPageModule {
-  private PREFIX = 'FolderPageModule';
+export class ContactDetailsPageModule {
+  private PREFIX = 'ContactDetailsPageModule';
   private log(func, line = '') {
       console.log(this.PREFIX + '/' + func + ':' + line);
   }
 
-  constructor() {
-      this.log('constructor');
+  constructor(){
+    this.log('constructor')
   }
-
 }

@@ -1,12 +1,12 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
-import { FolderPage } from './folder.page';
+import { ContactsHomePage } from './page';
 
 const routes: Routes = [
   {
     path: '',
-    component: FolderPage
+    component: ContactsHomePage
   }
 ];
 
@@ -14,8 +14,8 @@ const routes: Routes = [
   imports: [RouterModule.forChild(routes)],
   exports: [RouterModule],
 })
-export class FolderPageRoutingModule {
-  private PREFIX = 'FolderPageRoutingModule';
+export class ContactsHomePageRoutingModule {
+  private PREFIX = 'ContactsHomePageRoutingModule';
   private log(func, line = '') {
       console.log(this.PREFIX + '/' + func + ':' + line);
   }

@@ -2,7 +2,7 @@
 	set -u
 
 #-------------------------------------------------------------------------------
-	_DEPLOY_VERSION=3.0.0-01
+	_DEPLOY_VERSION=3.0.0-02
 
 #-------------------------------------------------------------------------------
 	ARGV=$BASH_ARGV
@@ -25,7 +25,7 @@
 	export DIRENV_BASE="$HERE"
 	export DIRENV_HOME="$HERE/.env.d"
 
-	DIRENV_FILE_ENVRC="$DIRENV_BASE/.envrc"
+	DIRENV_FILE_ENVRC="$DIRENV_BASE/.setenv"
 
 	DIRENV_NAME_CONFIG="config"
 	DIRENV_NAME_SSHENV="ssh-environment"

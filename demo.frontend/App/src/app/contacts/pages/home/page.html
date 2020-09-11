@@ -1,0 +1,40 @@
+<ion-header>
+	<ion-toolbar>
+		<ion-buttons slot="start">
+			<ion-menu-button></ion-menu-button>
+		</ion-buttons>
+		<ion-buttons slot="end">
+			<ion-button (click)="addContact()">
+				<ion-icon name="add-outline" slot="start"></ion-icon>
+			</ion-button>
+		</ion-buttons>
+		<ion-title>List of Contacts</ion-title>
+	</ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+	<ion-list>
+		<ion-item-sliding *ngFor="let contact of (contacts | async)">
+			<ion-item detail="true" tappable routerLink="/contact-details/{{ contact.id }}">
+				<ion-icon slot="start" icon="person" color="primary"></ion-icon>
+
+				<ion-label>
+					<h2> {{ contact.lastName }}, {{ contact.firstName }}</h2>
+					<p>{{ contact.city }} {{ contact.country }} </p>
+				</ion-label>
+				<ion-note>
+					E-Mail: {{ contact.email }}
+				</ion-note>
+			</ion-item>
+
+			<ion-item-options side="end">
+				<ion-item-option color="danger" (click)="delContact(contact)">
+					<ion-icon slot="icon-only" name="trash"></ion-icon>
+				</ion-item-option>
+			</ion-item-options>
+
+		</ion-item-sliding>
+	</ion-list>
+
+</ion-content>
